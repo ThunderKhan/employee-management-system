@@ -1,12 +1,12 @@
 # Employee Management System
 
-A full-stack MERN app: React frontend, Node/Express backend, MongoDB database, JWT-protected dashboard with employee CRUD, search, filter, and stats.
+A full-stack MERN app: React (Vite) frontend, Node/Express backend, MongoDB database, JWT-protected dashboard with employee CRUD, search, filter, and stats.
 
 ## Project Structure
 ```
 ems/
 ├── backend/     Express + MongoDB API
-└── frontend/    React app
+└── frontend/    React app (Vite + Tailwind CSS)
 ```
 
 ## 1. Backend Setup
@@ -38,16 +38,17 @@ Runs on `http://localhost:5000`.
 ```bash
 cd frontend
 npm install
+cp .env.example .env
 ```
 
-Optionally create `frontend/.env` if your backend isn't on localhost:5000:
+The `.env` file sets the API base URL (defaults to `http://localhost:5000/api` if omitted):
 ```
-REACT_APP_API_URL=http://localhost:5000/api
+VITE_API_URL=http://localhost:5000/api
 ```
 
 Start the app:
 ```bash
-npm start
+npm run dev
 ```
 Runs on `http://localhost:3000`.
 
@@ -66,11 +67,14 @@ Use the email/password you set in `backend/.env` (`ADMIN_EMAIL` / `ADMIN_PASSWOR
 
 Protected routes require header: `Authorization: Bearer <token>`
 
+A ready-to-import Postman collection is included at `EMS.postman_collection.json`.
+
 ## Features Implemented
 - JWT authentication with protected dashboard
 - Employee CRUD (name, email, mobile, department, designation, salary, status)
 - Search by name, filter by department
 - Dashboard stats: total / active / inactive
-- Client + server-side validation
+- Client + server-side validation (mobile numbers validated as 10-digit Indian numbers)
+- Salary displayed in ₹ (INR)
 - Toast notifications for success/error
-- Responsive UI
+- Responsive UI (table view on desktop, stacked cards on mobile)
