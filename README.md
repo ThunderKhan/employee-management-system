@@ -67,8 +67,6 @@ Use the email/password you set in `backend/.env` (`ADMIN_EMAIL` / `ADMIN_PASSWOR
 
 Protected routes require header: `Authorization: Bearer <token>`
 
-A ready-to-import Postman collection is included at `EMS.postman_collection.json`.
-
 ## Features Implemented
 - JWT authentication with protected dashboard
 - Employee CRUD (name, email, mobile, department, designation, salary, status)
